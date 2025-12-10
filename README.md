@@ -44,18 +44,20 @@ The project is implemented in MATLAB for a machine learning coursework.
 ---
 
 ## Hypothesis
-H₁: A Random Forest classifier will achieve significantly higher classification accuracy on handwritten digit recognition than a single Decision Tree classifier.
 
-H₀: There is no significant difference in classification accuracy between Random Forest and Decision Tree models.
+**H₁**: A Random Forest classifier will achieve significantly higher classification accuracy on handwritten digit recognition than a single Decision Tree classifier.
+
+**H₀**: There is no significant difference in classification accuracy between Random Forest and Decision Tree models.
+
 ---
 
 ## Results Summary
 *(Replace with your actual numbers)*
 
-| Model                     | Accuracy | Train Time | Test Time |
-|---------------------------|----------|------------|-----------|
-| Decision Tree             | 84.7%    | 0.12 s     | 0.01 s    |
-| Random Forest (100 trees) | 92.3%    | 1.42 s     | 0.05 s    |
+| Model                     | CV Accuracy | Train Accuracy | Test Accuracy | Train Time | CV Time     |
+|---------------------------|-------------|----------------|---------------|------------|-------------|
+| Decision Tree             | 86.1%       | 90.7%          | 87.2%         | 2.96 s     | 53.72 s     |
+| Random Forest (400 trees) | 96.9%       | 100.0%         | 97.1%         | 138.15 s   | 1114.76 s   |
 
 ---
 
