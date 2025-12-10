@@ -1,29 +1,26 @@
-function [XTrain, yTrain, XTest, yTest] = load_data()
 % LOAD_DATA Reads MNIST IDX files into MATLAB matrices.
+function [XTrain, yTrain, XTest, yTest] = load_data()
 
-    % Folder where THIS file lives (code/)
+    % File paths
     thisDir = fileparts(mfilename('fullpath'));
-
-    % Go one level up (project root) then into data/
     baseDir = fullfile(thisDir, '..', 'data');
 
-    % Filenames as they appear in your screenshot (note the DOT, not hyphen)
     trainImagesFile = fullfile(baseDir, 'train-images.idx3-ubyte');
     trainLabelsFile = fullfile(baseDir, 'train-labels.idx1-ubyte');
     testImagesFile  = fullfile(baseDir, 't10k-images.idx3-ubyte');
     testLabelsFile  = fullfile(baseDir, 't10k-labels.idx1-ubyte');
 
-    % Quick sanity check so errors are clearer
+    % Verify files exist
     assert(isfile(trainImagesFile), 'File not found: %s', trainImagesFile);
     assert(isfile(trainLabelsFile), 'File not found: %s', trainLabelsFile);
     assert(isfile(testImagesFile),  'File not found: %s', testImagesFile);
     assert(isfile(testLabelsFile),  'File not found: %s', testLabelsFile);
 
-    % ---- Load training data ----
+    % Lode training data
     XTrain = load_images(trainImagesFile);
     yTrain = load_labels(trainLabelsFile);
 
-    % ---- Load test data ----
+    % Load test data
     XTest  = load_images(testImagesFile);
     yTest  = load_labels(testLabelsFile);
 
@@ -31,8 +28,9 @@ function [XTrain, yTrain, XTest, yTest] = load_data()
         size(XTrain,1), size(XTest,1));
 end
 
+% -------------------------------
 
-%% -------- Helper: Load Images -------- %%
+% Helper function to load images
 function images = load_images(filename)
     fid = fopen(filename,'rb');
     if fid < 0, error('Could not open %s', filename); end
@@ -53,8 +51,9 @@ function images = load_images(filename)
     images = double(rawData);  % convert to double
 end
 
+% -------------------------------
 
-%% -------- Helper: Load Labels -------- %%
+% Helper function to load labels
 function labels = load_labels(filename)
     fid = fopen(filename,'rb');
     if fid < 0, error('Could not open %s', filename); end

@@ -1,10 +1,7 @@
-function plot_results(dtResults, rfResults, dtInfo, rfInfo, ...
-                      accFigPath, hyperFigPath)
 %PLOT_RESULTS Plot accuracy comparison and hyperparameter tuning curves.
+function plot_results(dtResults, rfResults, dtInfo, rfInfo, accFigPath, hyperFigPath)
 
-    %-------------------------------
-    % 1) Accuracy comparison
-    %-------------------------------
+    % Accuracy comparison
     figure('Visible','off');
     modelNames = {dtResults.modelName, rfResults.modelName};
     testAcc    = [dtResults.testAcc,  rfResults.testAcc];
@@ -26,9 +23,7 @@ function plot_results(dtResults, rfResults, dtInfo, rfInfo, ...
     end
     close(gcf);
 
-    %-------------------------------
-    % 2) Hyperparameter curves
-    %-------------------------------
+    % Hyperparameter curves
     figure('Visible','off');
     hold on;
 

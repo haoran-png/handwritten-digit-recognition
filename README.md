@@ -1,7 +1,7 @@
 # Handwritten Digit Recognition using Decision Trees and Random Forests
 
 ## Overview
-This project compares Decision Trees (DT) and Random Forests (RF) for handwritten digit recognition using the MNIST dataset (or your dataset).  
+This project compares Decision Trees (DT) and Random Forests (RF) for handwritten digit recognition using the MNIST dataset (https://www.kaggle.com/datasets/hojjatk/mnist-dataset).  
 The aim is to evaluate both models based on:
 
 - Classification accuracy  

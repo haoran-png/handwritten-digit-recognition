@@ -1,5 +1,5 @@
-function metricsStruct = metrics(yTrue, yPred)
 %METRICS Compute basic classification metrics for multi-class MNIST.
+function metricsStruct = metrics(yTrue, yPred)
 
     % Ensure column vectors
     yTrue = yTrue(:);
@@ -18,6 +18,7 @@ function metricsStruct = metrics(yTrue, yPred)
     recall     = zeros(numClasses, 1);
     f1         = zeros(numClasses, 1);
 
+    % Compute metrics for each class
     for i = 1:numClasses
         tp = C(i, i);
         fp = sum(C(:, i)) - tp;
@@ -28,6 +29,7 @@ function metricsStruct = metrics(yTrue, yPred)
         f1(i)        = 2 * precision(i) * recall(i) / max(precision(i) + recall(i), eps);
     end
 
+    % Package metrics into struct
     metricsStruct = struct();
     metricsStruct.accuracy  = accuracy;
     metricsStruct.confusion = C;
