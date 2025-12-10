@@ -43,6 +43,12 @@ The project is implemented in MATLAB for a machine learning coursework.
 
 ---
 
+## Hypothesis
+H₁: A Random Forest classifier will achieve significantly higher classification accuracy on handwritten digit recognition than a single Decision Tree classifier.
+
+H₀: There is no significant difference in classification accuracy between Random Forest and Decision Tree models.
+---
+
 ## Results Summary
 *(Replace with your actual numbers)*
 
