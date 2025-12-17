@@ -4,7 +4,7 @@ function [rfModel, info] = train_random_forest(XTrain, yTrain)
     fprintf('\n=== Training Random Forest ===\n');
 
     % Hyperparameter grid
-    numTreesGrid = [50, 100, 200, 400];
+    numTreesGrid = [50, 100, 200];
     kFolds = 5;
     cvAccuracy = zeros(size(numTreesGrid));
 
