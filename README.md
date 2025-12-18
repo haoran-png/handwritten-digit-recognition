@@ -30,6 +30,12 @@ The project is implemented in MATLAB for a machine learning coursework.
 
 ---
 
+## How to Run
+1. Open MATLAB and set the project folder as the working directory.
+2. Run `main.m` to reproduce all experiments and figures.
+
+---
+
 ## Results Summary
 
 | Model                     | CV Accuracy | Train Accuracy | Test Accuracy | Train Time | CV Time    |
