@@ -6,6 +6,7 @@ rng(42);
 thisFile = mfilename('fullpath');
 [thisDir,~,~] = fileparts(thisFile);
 
+addpath(thisDir);
 addpath(fullfile(thisDir, 'utils'));
 
 % load_data.m
@@ -41,19 +42,28 @@ for i = 1:numel(rfInfo.hyperparamValues)
         rfInfo.hyperparamValues(i), rfInfo.cvAccuracy(i));
 end
 
+% Create models folder if it doesn't exist
+if ~exist('models', 'dir')
+    mkdir('models');
+end
+
+% Save trained models
+save('models/rf_model.mat', 'rfModel');
+save('models/dt_model.mat', 'dtModel');
+
 % evaluate_model.m
 dtResults = evaluate_model(dtModel, XTrainProc, yTrain, ...
                            XTestProc,  yTest,  'Decision Tree', ...
-                           fullfile('results','confusion_dt.png'));
+                           fullfile('results', 'code_generated','confusion_dt.png'));
 
 rfResults = evaluate_model(rfModel, XTrainProc, yTrain, ...
                            XTestProc,  yTest,  'Random Forest', ...
-                           fullfile('results','confusion_rf.png'));
+                           fullfile('results', 'code_generated','confusion_rf.png'));
 
 % plot_results.m
 resultsDir = fullfile('results');
 if ~exist(resultsDir, 'dir'); mkdir(resultsDir); end
 
 plot_results(dtResults, rfResults, dtInfo, rfInfo, ...
-    fullfile('results','accuracy_comparison.png'), ...
-    fullfile('results','hyperparameter_plot.png'));
+    fullfile('results', 'code_generated','accuracy_comparison.png'), ...
+    fullfile('results', 'code_generated','hyperparameter_plot.png'));
