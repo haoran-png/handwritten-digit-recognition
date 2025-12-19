@@ -16,6 +16,7 @@ function plot_results(dtResults, rfResults, dtInfo, rfInfo, accFigPath, hyperFig
             'HorizontalAlignment','center', 'VerticalAlignment','bottom');
     end
 
+    % Save accuracy figure
     if ~isempty(accFigPath)
         [figDir, ~, ~] = fileparts(accFigPath);
         if ~exist(figDir, 'dir'); mkdir(figDir); end
@@ -36,6 +37,7 @@ function plot_results(dtResults, rfResults, dtInfo, rfInfo, accFigPath, hyperFig
     legend('Location','best');
     grid on;
 
+    % Save hyperparameter tuning figure
     if ~isempty(hyperFigPath)
         [figDir, ~, ~] = fileparts(hyperFigPath);
         if ~exist(figDir, 'dir'); mkdir(figDir); end
