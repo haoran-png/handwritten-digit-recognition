@@ -19,6 +19,7 @@ function results = evaluate_model(model, XTrain, yTrain, XTest, yTest, modelName
     confusionchart(testMetrics.confusion, string(testMetrics.classes));
     title(sprintf('Confusion Matrix - %s (Test)', modelName));
 
+    % Save confusion matrix figure
     if ~isempty(confusionFigPath)
         [figDir, ~, ~] = fileparts(confusionFigPath);
         if ~exist(figDir, 'dir'); mkdir(figDir); end
