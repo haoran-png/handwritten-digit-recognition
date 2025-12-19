@@ -42,14 +42,17 @@ for i = 1:numel(rfInfo.hyperparamValues)
         rfInfo.hyperparamValues(i), rfInfo.cvAccuracy(i));
 end
 
-% Create models folder if it doesn't exist
+% create models folder if it doesn't exist
 if ~exist('models', 'dir')
     mkdir('models');
 end
 
-% Save trained models
+% save trained models and info
 save('models/rf_model.mat', 'rfModel');
 save('models/dt_model.mat', 'dtModel');
+
+save('models/rf_info.mat', 'rfInfo');
+save('models/dt_info.mat', 'dtInfo');
 
 % evaluate_model.m
 dtResults = evaluate_model(dtModel, XTrainProc, yTrain, ...
