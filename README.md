@@ -49,3 +49,14 @@ The project is implemented in MATLAB for a machine learning coursework.
 - Reduces variance through averaging  
 - Handles noisy features more effectively  
 - Builds stronger decision boundaries  
+
+---
+
+## Future Directions
+
+- Apply Principal Component Analysis (PCA) during preprocessing to reduce dimensionality and noise
+- Investigate probabilistic classifiers such as Naive Bayes for comparison with tree-based models
+- Explore unsupervised methods (e.g. K-means) to analyse latent structure in the digit data
+
+
+
